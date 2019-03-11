@@ -26,9 +26,6 @@ public final class MakeMD5 {
                 newCArr[k++]=hexDiagiArr[byte0&0x0f];     //取字节中低 4 位的数字转换
                 //针对字符0-9的，0-9的ascii码值为0x30，0x31，0x32 0x33 ...0x39，
                 //因此与0x0f按位与后只保留个位上的书即0x0，0x1，。。。0x9
-                //  0000 1010
-                //& 0000 1111
-                //  0000 1010
             }
             return String.valueOf(newCArr);   //将转换后的字符转换为字符串
         }
