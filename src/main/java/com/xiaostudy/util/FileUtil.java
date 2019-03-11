@@ -25,10 +25,12 @@ import org.apache.log4j.Logger;
  * @author liwei
  *
  */
-public class FileUtil {
+public final class FileUtil {
 
 	private static Logger logger = Logger.getLogger(FileUtil.class);
 	private static String CLASSNAME = DateUtil.class.getName();
+
+	private FileUtil(){}
 
 	/**
 	 * 把文件复制到指定文件夹下，字节流方式

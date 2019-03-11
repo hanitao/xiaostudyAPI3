@@ -12,10 +12,12 @@ import org.apache.log4j.Logger;
  * @author liwei
  *
  */
-public class DateUtil {
+public final class DateUtil {
 
 	private static Logger logger = Logger.getLogger(DateUtil.class);
 	private static String CLASS = DateUtil.class.getName();
+
+	private DateUtil(){}
 
 	/**
 	 * 获取当前时间，以中文形式表现

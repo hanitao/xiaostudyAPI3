@@ -24,11 +24,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author liwei
  *
  */
-public class ExcelUtil {
+public final class ExcelUtil {
 
 	private static Logger logger = Logger.getLogger(ExcelUtil.class);
 	private static String CLASSNAME = ExcelUtil.class.getName();
 
+	private ExcelUtil(){}
 	/**
 	 * 读取excel
 	 *
