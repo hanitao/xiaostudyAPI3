@@ -6,7 +6,7 @@
 
     <groupId>com.xiaostudy</groupId>
     <artifactId>xiaostudyAPI3</artifactId>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <build>
         <plugins>
             <plugin>

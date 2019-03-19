@@ -7,8 +7,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- * @author xiaostudy
  * @desc 数学工具类
+ * @author xiaostudy
  */
 public final class MathUtil {
 
@@ -20,12 +20,12 @@ public final class MathUtil {
     }
 
     /**
-     * @param n
-     * @param m
-     * @return
      * @desc 组合
      * <p>公式：C(n,m)=A(n,m)/m!=n(n-1)...(n-m+1)/m(m-1)...1=n!/((n-m)!*m!) </p>
      * <p style="color:red">例子：Integer n = 3; Integer m = 2; 结果：3</p>
+     * @param n
+     * @param m
+     * @return
      */
     public final static Integer combinationCnm(Integer n, Integer m) {
         logger.debug(">>>>>" + CLASSNAME + ".combination().....");
@@ -62,12 +62,12 @@ public final class MathUtil {
     }
 
     /**
-     * @param n
-     * @param m
-     * @return
      * @desc 排列
      * <p>公式：A(n,m)=n(n-1)...(n-m+1)=n!/(n-m)! </p>
      * <p style="color:red">例子：Integer n = 3; Integer m = 2; 结果：6</p>
+     * @param n
+     * @param m
+     * @return
      */
     public static Integer arrangeAnm(Integer n, Integer m) {
         logger.debug(">>>>>" + CLASSNAME + ".arrangeAnm().....");
@@ -106,11 +106,11 @@ public final class MathUtil {
     }
 
     /**
-     * @param integer
-     * @return
-     * @desc 阶乘
+     * @desc 阶乘，自上向下。不好
      * <p>公式：n!=n*(n-1)...1 </p>
      * <p style="color:red">例子：Integer integer = 3; 结果：6</p>
+     * @param integer
+     * @return
      */
     public static Integer factorial(Integer integer) {
         logger.debug(">>>>>" + CLASSNAME + ".factorial().....");
@@ -128,15 +128,45 @@ public final class MathUtil {
         }
         logger.debug("<<<<<" + CLASSNAME + ".factorial().");
         return integer * factorial(integer - 1);
-
     }
 
     /**
+     * @desc 阶乘，自下向上
+     * <p>公式：n!=n*(n-1)...1 </p>
+     * <p style="color:red">例子：Integer integer = 3; 结果：6</p>
+     * @param integer
+     * @return
+     */
+    public static Integer factorial2(Integer integer) {
+        logger.debug(">>>>>" + CLASSNAME + ".factorial2().....");
+        logger.debug("integer:" + integer);
+        if (integer == null) {
+            return null;
+        }
+
+        if (integer != null && integer < 0) {
+            return -1;
+        }
+
+        if (integer == 0 || integer == 1) {
+            return 1;
+        }
+
+        int count = 1;
+
+        for(int i = 2; i <= integer; i++) {
+            count = count * i;
+        }
+        logger.debug("<<<<<" + CLASSNAME + ".factorial2().");
+        return count;
+    }
+
+    /**
+     * @desc 通过一数组，以一定组合
+     * <p style="color:red">例子：String[] ts = {"1", "2", "3"}; Integer integer = 2; 结果：[[1, 2], [1, 3], [2, 3]]</p>
      * @param ts
      * @param integer
      * @return
-     * @desc 通过一数组，以一定组合
-     * <p style="color:red">例子：String[] ts = {"1", "2", "3"}; Integer integer = 2; 结果：[[1, 2], [1, 3], [2, 3]]</p>
      */
     public static <T> List<List<T>> combinationTsToInteger(T[] ts, Integer integer) {
         logger.debug(">>>>>" + CLASSNAME + ".combinationStringsToInteger().....");
@@ -196,13 +226,13 @@ public final class MathUtil {
     }
 
     /**
+     * @desc 通过一串字符串以特定分割得到字符串数组，以一定数字组合
+     * <p style="color:red">例子：String str = "1,2,3"; String regex = ","; Integer integer = 2; 结果：[[1, 2], [1, 3], [2, 3]]</p>
+     * <p style="color:red">与使用方法combinationTsToInteger，参数为String[] ts = {"1", "2", "3"}; Integer integer = 2一样</p>
      * @param str
      * @param regex
      * @param integer
      * @return
-     * @desc 通过一串字符串以特定分割得到字符串数组，以一定数字组合
-     * <p style="color:red">例子：String str = "1,2,3"; String regex = ","; Integer integer = 2; 结果：[[1, 2], [1, 3], [2, 3]]</p>
-     * <p style="color:red">与使用方法combinationTsToInteger，参数为String[] ts = {"1", "2", "3"}; Integer integer = 2一样</p>
      */
     public static List<List<String>> combinationStringBySplitToInteger(String str, String regex, Integer integer) {
         logger.debug(">>>>>" + CLASSNAME + ".combinationStringBySplitToInteger().....");
@@ -225,11 +255,11 @@ public final class MathUtil {
     }
 
     /**
+     * @desc 通过一数组，以一定组合，并写入Excel
      * @param ts
      * @param integer
      * @param filename
      * @return
-     * @desc 通过一数组，以一定组合，并写入Excel
      */
     public static <T> Boolean combinationTsToIntegerWriteFilename(T[] ts, Integer integer, String filename) {
         logger.debug(">>>>>" + CLASSNAME + ".combinationStringsToIntegerWriteFilename().....");
@@ -257,12 +287,12 @@ public final class MathUtil {
     }
 
     /**
+     * @desc 通过一串字符串以特定分割得到字符串数组，以一定数字组合，并写入Excel
      * @param str
      * @param regex
      * @param integer
      * @param filename
      * @return
-     * @desc 通过一串字符串以特定分割得到字符串数组，以一定数字组合，并写入Excel
      */
     public static Boolean combinationStringBySplitToIntegerWriteFilename(String str, String regex, Integer integer,
                                                                          String filename) {
@@ -275,10 +305,10 @@ public final class MathUtil {
     }
 
     /**
-     * @param listT
-     * @return
      * @desc 给定集合元素进行排列
      * <p style="color:red">例子：List&lt;T&gt; listT = new ArrayList<String>(); listStr.add("1");listStr.add("2");listStr.add("3"); 结果：[[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]</p>
+     * @param listT
+     * @return
      */
     public static <T> List<List<T>> arrangeT(List<T> listT) {
         List<List<T>> list = new ArrayList<List<T>>();
@@ -320,11 +350,11 @@ public final class MathUtil {
     }
 
     /**
+     * @desc 通过一数组，以一定排列组合
+     * <p style="color:red">例子：String[] strings = {"1", "2", "3"};Integer integer = 2;  结果：[[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]</p>
      * @param ts
      * @param integer
      * @return
-     * @desc 通过一数组，以一定排列组合
-     * <p style="color:red">例子：String[] strings = {"1", "2", "3"};Integer integer = 2;  结果：[[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]</p>
      */
     public static <T> List<List<T>> arrangeTsToInteger(T[] ts, Integer integer) {
         logger.debug(">>>>>" + CLASSNAME + ".arrangeStringsToInteger().....");
@@ -385,11 +415,11 @@ public final class MathUtil {
     }
 
     /**
+     * @desc 通过一数组，以一定排列组合，并写入文件
      * @param ts
      * @param integer
      * @param filename
      * @return
-     * @desc 通过一数组，以一定排列组合，并写入文件
      */
     public static <T> Boolean arrangeTsToIntegerWriteFilename(T[] ts, Integer integer, String filename) {
         List<List<T>> list = arrangeTsToInteger(ts, integer);
@@ -870,6 +900,34 @@ public final class MathUtil {
         }
 
         return molecular + "/" + denominator;
+    }
+
+    /**
+     * @desc 斐波那契数列
+     * <p>公式：f(n)=f(n-1)+f(n-2)，其中f(1)=f(2)=1</p>
+     * @param n
+     * @return
+     */
+    public static Integer getFibonacciSequence(Integer n) {
+        if(n == null) {
+            return null;
+        }
+
+        if(n <= 0) {
+            return 0;
+        }
+
+        int count = 0;
+
+        for(int i = 1; i <= n; i++) {
+            if(i == 1 || i == 2) {
+                count = 1;
+             } else {
+                count = getFibonacciSequence(n-1) + getFibonacciSequence(n-2);
+            }
+        }
+
+        return count;
     }
 
 }
