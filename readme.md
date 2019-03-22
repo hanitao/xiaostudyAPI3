@@ -8,16 +8,21 @@
 ### 1、日期
 
 - 处理日期格式，转化不同格式；
-- 两个日期的时间差
+- 两个日期的时间差getBeginEndDatetime
 
 ### 2、文件
 
-- 复制/移动文件/文件夹
-- 判断文件是否为指定某类个/某些文件
-- 统计文件夹内文件夹个数和文件个数
-- 获取文件大小
-- 把某个/某些文件复制到指定文件夹下
-- 删除指定类型文件
+- 复制/移动文件/
+- 复制文件夹copyDir
+- 判断文件是否为指定某类个/某些文件isFileNameEndsWith
+- 统计文件夹内文件夹个数和文件个数getDirFileNumber
+- 获取文件大小getFileSizeString
+- 把某个/某些文件复制到指定文件夹下copyDirTpyesAll
+- 删除指定类型文件copyDirTpyesAllInDir
+- 删除文件夹removeDir
+- 获取文件夹里所有文件的绝对路径getFileNames
+- 判断两个文件是否相同equalsFile
+- 把文件夹里相同的文件列出来getRepetitionFiles
 
 ### 3、Excel
 
@@ -25,13 +30,18 @@
 
 ### 4、数学
 
-- 排列组合
-- 阶乘
-- 一元二次方程
-- 等差等比数列
-- 海伦公式
-- 二项分布
-- 两个数的最大公约数
-- 小数转分数（精度丢失下失效）
+- 组合combinationCnm
+- 排列arrangeAnm
+- 阶乘factorial
+- 一元二次方程实数解oneYuanQuadraticEquations
+- 一元二次方程复数解oneYuanQuadraticEquationsI
+- 等差数列arithmeticSequence
+- 等比数列geometricSequence
+- 海伦公式helenFormula
+- 判断是否为三角形triangle
+- 二项分布binomialDistribution
+- 最大公约数gcd
+- 小数转分数（精度丢失下失效）getFraction
+- 斐波那契数列getFibonacciSequence
 
 ### 5、MD5

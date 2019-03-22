@@ -523,7 +523,7 @@ public final class MathUtil {
     }
 
     /**
-     * @desc 一元二次方程解
+     * @desc 一元二次方程实数解
      * <p>公式：aX平方+bX+c=0</p>
      * <p style="color:red">只有实数解，没有复数解</p>
      * @param a
@@ -540,7 +540,7 @@ public final class MathUtil {
     }
 
     /**
-     * @desc 一元二次方程解
+     * @desc 一元二次方程复数解
      * <p>公式：aX平方+bX+c=0</p>
      * <p style="color:red">复数解</p>
      * @param a

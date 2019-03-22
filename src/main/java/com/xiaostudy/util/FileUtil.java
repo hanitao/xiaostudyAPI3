@@ -1,20 +1,8 @@
 package com.xiaostudy.util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -28,7 +16,7 @@ import org.apache.log4j.Logger;
 public final class FileUtil {
 
 	private static Logger logger = Logger.getLogger(FileUtil.class);
-	private static String CLASSNAME = DateUtil.class.getName();
+	private static String CLASSNAME = FileUtil.class.getName();
 
 	private FileUtil(){}
 
@@ -1073,6 +1061,166 @@ public final class FileUtil {
 			logger.debug("<<<<<" + CLASSNAME + ".removeDir().");
 		}
 	}
+
+    /**
+     * @desc 获取文件夹下所有文件的绝对路径
+     * @param file
+     * @return
+     */
+	public static List<String> getFileNames(File file) {
+		if(file == null || !file.isDirectory()) {
+			return null;
+		}
+
+		List<String> list = new ArrayList<>();
+		String[] files = file.list();
+		for(int i = 0; i < files.length; i++) {
+            File file1 = new File(file.getPath() + File.separator + files[i]);
+            if(file1.exists() && file1.isDirectory()) {
+                List<String> fileNames = getFileNames(file1);
+                if(fileNames != null && fileNames.size() > 0) {
+                    list.addAll(fileNames);
+                }
+            } else if(file1.exists() && file1.isFile()) {
+                list.add(file.getPath() + File.separator + file1.getName());
+            }
+		}
+		return list;
+	}
+
+    /**
+     * @desc 获取文件夹下所有文件的绝对路径
+     * @param fileNames
+     * @return
+     */
+    public static List<String> getFileNames(String fileNames) {
+	    if(fileNames == null || fileNames.length() <= 0) {
+	        return null;
+        }
+
+        File file = new File(fileNames);
+	    if(!file.exists() || !file.isDirectory()) {
+	        return null;
+        }
+
+        return getFileNames(file);
+    }
+
+    /**
+     * @desc 判断两个文件是否相同
+     * @param file1
+     * @param file2
+     * @return
+     */
+    public static boolean equalsFile(File file1, File file2) {
+        if(file1 == null || file2 == null || !file1.isFile() || !file2.isFile()) {
+            return false;
+        }
+
+        int length1 = (int) file1.length();
+        int length2 = (int) file2.length();
+        if(length1 != length2) {
+            return false;
+        }
+
+        FileInputStream fis1 = null;
+        FileInputStream fis2 = null;
+        boolean b = true;
+        try {
+            fis1 = new FileInputStream(file1);
+            fis2 = new FileInputStream(file2);
+            byte[] data1 = new byte[length1];
+            byte[] data2 = new byte[length2];
+            fis1.read(data1);
+            fis2.read(data2);
+            for (int i=0; i<length1; i++) {
+                //只要有一个字节不同，两个文件就不一样
+                if (data1[i] != data2[i]) {
+                    b = false;
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeFile(fis1, null, null, null);
+            closeFile(fis2, null, null, null);
+            return b;
+        }
+    }
+
+    /**
+     * @desc 判断两个文件是否相同
+     * @param fileName1
+     * @param fileName2
+     * @return
+     */
+    public static boolean equalsFile(String fileName1, String fileName2) {
+        if(fileName1 == null || fileName2 == null || fileName1.length() <= 0 || fileName2.length() <= 0) {
+            return false;
+        }
+
+        return equalsFile(new File(fileName1), new File(fileName2));
+    }
+
+    /**
+     * @desc 把文件夹里相同的文件列出来，相同的放在一个List
+     * @param file
+     * @return
+     */
+    public static List<List<String>> getRepetitionFiles(File file) {
+		if(file == null || !file.isDirectory()) {
+			return null;
+		}
+
+        List<String> fileNames = getFileNames(file);
+        if(fileNames == null || fileNames.size() <= 0) {
+            return null;
+        }
+
+        List<List<String>> arrayLists = new ArrayList<>();
+
+        int size = fileNames.size();
+
+        List<Integer> subscript = new ArrayList<>();
+        List<String> list = null;
+        for(int i = 0; i < size; i++) {
+            if(subscript.contains(i)) {//如果前面有相同了，就跳过此文件
+                continue;
+            }
+            String fileName = fileNames.get(i);
+            list = new ArrayList<>();
+            list.add(fileName);
+            subscript.add(i);
+            for(int j = i + 1; j < size; j++) {
+                String fileName2 = fileNames.get(j);
+                if(equalsFile(fileName, fileName2)) {
+                    list.add(fileName2);
+                    subscript.add(j);
+                }
+            }
+            if(list.size() > 1) {
+                arrayLists.add(list);
+            }
+        }
+
+        return arrayLists;
+	}
+
+    /**
+     * @desc 把文件夹里相同的文件列出来，相同的放在一个List
+     * @param fileName
+     * @return
+     */
+    public static List<List<String>> getRepetitionFiles(String fileName) {
+        if(fileName == null || fileName.length() <= 0) {
+            return null;
+        }
+
+        return getRepetitionFiles(new File(fileName));
+    }
 
 	//删除文件夹下指定的类型文件
 	//删除文件夹下指定的多个类型文件
