@@ -27,7 +27,7 @@ public final class MathUtil {
      * @param m
      * @return
      */
-    public final static Integer combinationCnm(Integer n, Integer m) {
+    public static Integer combinationCnm(Integer n, Integer m) {
         logger.debug(">>>>>" + CLASSNAME + ".combination().....");
         logger.debug("n:" + n);
         logger.debug("m:" + m);

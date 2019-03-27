@@ -45,3 +45,8 @@
 - 斐波那契数列getFibonacciSequence
 
 ### 5、MD5
+- 获取经过MD5加密的密码getMD5
+
+### 6、加解密文件
+- 简单的加解密文件simple
+- DES算法加解密des

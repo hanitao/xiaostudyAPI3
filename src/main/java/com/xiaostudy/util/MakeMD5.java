@@ -6,8 +6,8 @@ public final class MakeMD5 {
 
     private MakeMD5(){}
 
-    public final static String getMD5(String str){
-        if(str == null || str.trim().length() <= 0) {
+    public static String getMD5(String password){
+        if(password == null || password.trim().length() <= 0) {
             return null;
         }
         // 用来将字节转换成 16 进制表示的字符
@@ -15,7 +15,7 @@ public final class MakeMD5 {
         MessageDigest digest=null;
         try{
             digest=MessageDigest.getInstance("MD5");     //创建MD5算法摘要
-            digest.update(str.getBytes());                 //更新摘要
+            digest.update(password.getBytes());                 //更新摘要
             byte mdBytes[]=digest.digest();                 //加密，并返回字节数组
             //新建字符数组，长度为myBytes字节数组的2倍，用于保存加密后的值
             char newCArr[]=new char[mdBytes.length*2];
