@@ -49,4 +49,5 @@
 
 ### 6、加解密文件
 - 简单的加解密文件simple
-- DES算法加解密des
+- DES算法加密encrypt
+- DES算法解密decrypt

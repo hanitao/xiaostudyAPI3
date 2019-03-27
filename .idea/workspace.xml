@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="436f4ff1-fbb8-41d6-b530-846f18793c33" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,22 +21,31 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="194">
-                <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+              <first_editor relative-caret-position="265">
+                <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EncryptionAndDecryptionUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EncryptionAndDecryptionUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="167">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -78,11 +89,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/test/Test_file.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/jiami.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/MakeMD5.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/MathUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -229,7 +241,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test_file">
+  <component name="RunManager" selected="Application.EncryptionAndDecryptionUtil">
+    <configuration name="EncryptionAndDecryptionUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiaostudy.util.EncryptionAndDecryptionUtil" />
+      <module name="xiaostudyAPI3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xiaostudy.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="Test_binomialDistribution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiaostudy.test.Test_binomialDistribution" />
       <module name="xiaostudyAPI3" />
@@ -265,17 +288,6 @@
     </configuration>
     <configuration name="Test_getFraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiaostudy.test.Test_getFraction" />
-      <module name="xiaostudyAPI3" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xiaostudy.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Test_helenFormula" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xiaostudy.test.Test_helenFormula" />
       <module name="xiaostudyAPI3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -327,19 +339,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.Test_helenFormula" />
       <item itemvalue="Application.Test_binomialDistribution" />
       <item itemvalue="Application.Test_getFraction" />
       <item itemvalue="Application.Test_getFibonacciSequence" />
       <item itemvalue="Application.Test_file" />
+      <item itemvalue="Application.EncryptionAndDecryptionUtil" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EncryptionAndDecryptionUtil" />
         <item itemvalue="Application.Test_file" />
         <item itemvalue="Application.Test_getFibonacciSequence" />
         <item itemvalue="Application.Test_binomialDistribution" />
         <item itemvalue="Application.Test_getFraction" />
-        <item itemvalue="Application.Test_helenFormula" />
       </list>
     </recent_temporary>
   </component>
@@ -360,12 +372,12 @@
       <workItem from="1553010321921" duration="1431000" />
       <workItem from="1553255855626" duration="8591000" />
       <workItem from="1553267994989" duration="18000" />
-      <workItem from="1553691542962" duration="6186000" />
+      <workItem from="1553691542962" duration="9933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40775000" />
+    <option name="totallyTimeSpent" value="44522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -760,13 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xiaostudy/util/MakeMD5.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -801,8 +806,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="194">
-            <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+          <first_editor relative-caret-position="265">
+            <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
           </first_editor>
           <second_editor />
         </state>
@@ -810,11 +815,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xiaostudy/util/EncryptionAndDecryptionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="167">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
