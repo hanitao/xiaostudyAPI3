@@ -13,11 +13,11 @@ import java.security.SecureRandom;
  * @author liwei
  * @Date 2019-3-27
  */
-public final class EncryptionAndDecryption {
+public final class EncryptionAndDecryptionUtil {
 
     private static final String DES = "DES";
 
-    private EncryptionAndDecryption(){}
+    private EncryptionAndDecryptionUtil(){}
 
     /**
      * 简单的文件加密，用位运算
