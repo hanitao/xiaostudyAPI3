@@ -33,6 +33,10 @@ public final class FileUtil {
 		logger.debug("endDir:" + endDir);
 
 		boolean b = false;
+		if(StringUtil.isTrimNull(beginFileName) || StringUtil.isTrimNull(endDir)) {
+			return b;
+		}
+
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		BufferedInputStream bis = null;
@@ -1221,6 +1225,23 @@ public final class FileUtil {
 
         return getRepetitionFiles(new File(fileName));
     }
+
+	public static Boolean checkDir(String filePath) {
+    	if(null == filePath || filePath.trim().length() <= 0) {
+    		return false;
+		}
+
+		File file = new File(filePath);
+    	if(file.isFile()) {
+    		return false;
+		}
+
+		if(!file.exists()){
+			file.mkdirs();
+		}
+
+		return true;
+	}
 
 	//删除文件夹下指定的类型文件
 	//删除文件夹下指定的多个类型文件

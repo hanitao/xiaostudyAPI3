@@ -266,23 +266,24 @@ public final class MathUtil {
         logger.debug("strings:" + ts);
         logger.debug("integer:" + integer);
         logger.debug("filename:" + filename);
+        boolean flag = false;
         String createExcelFile = "";
         try {
             if (ts == null || integer == null || filename == null) {
-                return null;
+                return flag;
             }
 
             List<List<T>> list = combinationTsToInteger(ts, integer);
             if (list == null) {
-                return false;
+                return flag;
             }
 
-            createExcelFile = ExcelUtil.createExcelFile(filename, list);
+            flag = ExcelUtil.createExcelFile(filename, list);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             logger.debug("<<<<<" + CLASSNAME + ".combinationStringsToIntegerWriteFilename().");
-            return new File(createExcelFile).exists();
+            return flag;
         }
     }
 
@@ -300,8 +301,8 @@ public final class MathUtil {
         if (list == null || list.size() <= 0) {
             return false;
         }
-        String createExcelFile = ExcelUtil.createExcelFile(filename, list);
-        return new File(createExcelFile).exists();
+
+        return ExcelUtil.createExcelFile(filename, list);
     }
 
     /**
@@ -427,8 +428,7 @@ public final class MathUtil {
             return false;
         }
 
-        String createExcelFile = ExcelUtil.createExcelFile(filename, list);
-        return new File(createExcelFile).exists();
+        return ExcelUtil.createExcelFile(filename, list);
     }
 
     /**

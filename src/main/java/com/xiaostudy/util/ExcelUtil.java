@@ -28,6 +28,11 @@ public final class ExcelUtil {
 
 	private static Logger logger = Logger.getLogger(ExcelUtil.class);
 	private static String CLASSNAME = ExcelUtil.class.getName();
+	private static final String XLS = "xls";
+	private static final String XLSX = "xlsx";
+	private static final String POINT_XLS = ".xls";
+	private static final String POINT_XLSX = ".xlsx";
+	private static final String POINT = ".";
 
 	private ExcelUtil(){}
 	/**
@@ -41,15 +46,19 @@ public final class ExcelUtil {
 		logger.debug("filePath:" + filePath);
 		Workbook workbook = null;
 		try {
-			if(filePath == null || filePath.trim().length() <= 0 || !(new File(filePath)).exists()) {
+			if(StringUtil.isTrimNull(filePath) || !(new File(filePath)).exists()) {
 				return null;
 			}
 
-			String extString = filePath.substring(filePath.lastIndexOf("."));
+			if(FileUtil.isFileNameEndsWith(filePath, POINT_XLS) || FileUtil.isFileNameEndsWith(filePath, POINT_XLSX)) {
+				return null;
+			}
+
+			String extString = filePath.substring(filePath.lastIndexOf(POINT));
 			InputStream is = new FileInputStream(filePath);
-			if (".xls".equals(extString)) {
+			if (POINT_XLS.equals(extString)) {
 				workbook = new HSSFWorkbook(is);
-			} else if (".xlsx".equals(extString)) {
+			} else if (POINT_XLSX.equals(extString)) {
 				workbook = new XSSFWorkbook(is);
 			}
 		} catch (Exception e) {
@@ -72,12 +81,12 @@ public final class ExcelUtil {
 
 		List<List<String>> list = new ArrayList<List<String>>();
 		try {
-			if(filePath == null || filePath.trim().length() <= 0) {
+			if(StringUtil.isTrimNull(filePath)) {
 				return null;
 			}
 
 			Workbook workbook = readExcel(filePath);
-			if(workbook == null) {
+			if(null == workbook) {
 				return null;
 			}
 
@@ -102,18 +111,18 @@ public final class ExcelUtil {
 		logger.debug("workbook:" + workbook);
 		List<List<String>> list = new ArrayList<List<String>>();
 		try {
-			if (workbook == null) {
+			if (null == workbook) {
 				return null;
 			}
 
 			Sheet sheet = workbook.getSheetAt(0);
-			if(sheet == null) {
+			if(null == sheet) {
 				return null;
 			}
 
 			for (int i = 0; i <= sheet.getLastRowNum(); i++) {
 				List<String> list2 = getCellRow(sheet, i);
-				if(list2 != null) {
+				if(null != list2 && !list2.isEmpty()) {
 					list.add(list2);
 				}
 			}
@@ -142,12 +151,12 @@ public final class ExcelUtil {
 
 		String stringForRow = "";
 		try {
-			if(sheet == null) {
+			if(null == sheet) {
 				return stringForRow;
 			}
 
 			List<String> list = getCellRow(sheet, iRowIndex);
-			if(list == null || list.size() <= 0) {
+			if(null == list || list.isEmpty()) {
 				return stringForRow;
 			}
 
@@ -498,22 +507,22 @@ public final class ExcelUtil {
 	 * @param list
 	 * @return
 	 */
-	public static <T> String createExcelFile(String fileName, List<List<T>> list) {
+	public static <T> Boolean createExcelFile(String fileName, List<List<T>> list) {
 		logger.debug(">>>>>" + CLASSNAME + ".createExcelFile()...");
 		logger.debug("fileName: " + fileName);
 		logger.debug("list: " + list);
 
 		FileOutputStream fileOut = null;
 		try {
-			if(fileName == null || fileName.trim().length() <= 0) {
-				return fileName;
+			if(StringUtil.isTrimNull(fileName)) {
+				return false;
 			}
 
 			File file = new File(fileName);
 			if(file.exists()) {
 				System.out.println("文件已存在！");
 				logger.debug("文件已存在！");
-				return fileName;
+				return false;
 			}
 
 			Workbook workbook = null;
@@ -525,7 +534,7 @@ public final class ExcelUtil {
 				excelType = "xlsx";
 				workbook = new XSSFWorkbook();
 			} else {
-				return fileName;
+				return false;
 			}
 
 			fileOut = new FileOutputStream(fileName);
@@ -556,7 +565,7 @@ public final class ExcelUtil {
 				}
 			}
 			logger.debug("<<<<<" + CLASSNAME + ".createExcelFile().");
-			return fileName;
+			return true;
 		}
 	}
 

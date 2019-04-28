@@ -11,9 +11,5 @@ public class Test_file {
         /*List<String> fileNames = FileUtil.getFileNames(new File("E:\\个人文件\\笔记\\"));
         System.out.println(fileNames);*/
 
-        List<List<String>> repetitionFiles = FileUtil.getRepetitionFiles(new File("E:\\个人文件\\视频"));
-        for(int i = 0; i < repetitionFiles.size(); i++) {
-            System.out.println(repetitionFiles.get(i));
-        }
     }
 }
